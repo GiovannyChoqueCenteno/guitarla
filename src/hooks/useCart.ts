@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { CartItem, Guitar } from "../models"
 
 export const useCart = ()=>{
@@ -57,8 +57,8 @@ export const useCart = ()=>{
          ))
     }
 
-    const isEmpty = cart.length ===0
-    const cartTotal = cart.reduce((total,item)=> total +(item.quantity * item.price),0 )
+    const isEmpty = useMemo(()=>cart.length ===0,[cart])
+    const cartTotal =useMemo( ()=> cart.reduce((total,item)=> total +(item.quantity * item.price),0 ),[cart])
     useEffect(()=>{
         console.log("Login")
     },[isEmpty])

@@ -1,15 +1,13 @@
-import React from "react"
 import type { Guitar} from "../models"
 
-interface GuitarProps{
+type GuitarProps ={
     guitar : Guitar,
     addToCart : (guitar : Guitar) => void
 } 
 
-const Guitar : React.FC<GuitarProps> = ({guitar,addToCart}) => {
+const Guitar  = ({guitar,addToCart} : GuitarProps) => {
 
     const handleClick =()=>{
-        console.log(guitar)
         addToCart(guitar)
     }
     const {description,name,price,image} = guitar

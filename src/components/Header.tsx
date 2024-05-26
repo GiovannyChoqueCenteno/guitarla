@@ -1,7 +1,7 @@
 import React, {  } from "react"
 import type {CartItem, Guitar} from "../models"
 
-interface IHeaderProps{
+type HeaderProps={
     cart : CartItem[],
     removeFromCart : (id : Guitar['id'])=>void,
     increaseQuantity : (id:Guitar['id']) => void,
@@ -11,7 +11,7 @@ interface IHeaderProps{
 
 }
 
-const Header : React.FC<IHeaderProps> = ({cart,removeFromCart,increaseQuantity,decreaseQuantity,isEmpty,cartTotal}) => {
+const Header  = ({cart,removeFromCart,increaseQuantity,decreaseQuantity,isEmpty,cartTotal} :HeaderProps) => {
 
   return (
     <header className="py-5 header">
